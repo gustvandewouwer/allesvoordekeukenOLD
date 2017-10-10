@@ -12,16 +12,16 @@ import javax.persistence.Table;
 public class Artikel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	private int id;
+	private long id;
 	private String naam;
 	private BigDecimal aankoopprijs;
 	private BigDecimal verkoopprijs;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -47,6 +47,11 @@ public class Artikel implements Serializable {
 
 	public void setVerkoopprijs(BigDecimal verkoopprijs) {
 		this.verkoopprijs = verkoopprijs;
+	}
+	
+	public BigDecimal getWinstPercentage() {
+		return verkoopprijs.subtract(aankoopprijs).divide(aankoopprijs).multiply(new BigDecimal(100));
+		//		return (verkoopprijs – aankoopprijs) / aankoopprijs * 100;
 	}
 
 }
