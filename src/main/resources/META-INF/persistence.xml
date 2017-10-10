@@ -7,6 +7,7 @@ http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2
 		<non-jta-data-source>
 			java:/comp/env/jdbc/allesvoordekeuken 
 		</non-jta-data-source>
+		<class>be.vdab.entities.Artikel</class>
 		<properties>
 			<property name='hibernate.show_sql' value='true' />
 			<property name='hibernate.format_sql' value='true' />
