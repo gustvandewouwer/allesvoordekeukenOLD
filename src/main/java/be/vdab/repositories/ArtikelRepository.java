@@ -1,5 +1,6 @@
 package be.vdab.repositories;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,4 +24,9 @@ public class ArtikelRepository extends AbstractRepository {
 				.createNamedQuery("Artikel.findByNaamContains", Artikel.class)
 				.setParameter("zoals", '%' + woord + '%').getResultList();
 	}
+	
+	public void prijsverhoging(BigDecimal factor) {
+		getEntityManager().createNamedQuery("Artikel.prijsverhoging").setParameter("factor", factor).executeUpdate();
+	}
+
 }

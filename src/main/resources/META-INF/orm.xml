@@ -9,4 +9,10 @@ http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
 			select a from Artikel a where a.naam like :zoals order by a.naam
 		</query>
 	</named-query>
+	<named-query name='Artikel.prijsverhoging'>
+		<query>
+			update Artikel a
+			set a.verkoopprijs = a.verkoopprijs * :factor
+		</query>
+	</named-query>
 </entity-mappings>
