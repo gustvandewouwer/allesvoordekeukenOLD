@@ -8,6 +8,8 @@ http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2
 			java:/comp/env/jdbc/allesvoordekeuken 
 		</non-jta-data-source>
 		<class>be.vdab.entities.Artikel</class>
+		<class>be.vdab.entities.FoodArtikel</class>
+		<class>be.vdab.entities.NonFoodArtikel</class>
 		<properties>
 			<property name='hibernate.show_sql' value='true' />
 			<property name='hibernate.format_sql' value='true' />
