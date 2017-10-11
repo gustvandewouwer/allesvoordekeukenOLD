@@ -41,7 +41,7 @@ public class ArtikelService extends AbstractService {
 	public List<Artikel> findByNaamContains(String woord) {
 		return artikelRepository.findByNaamContains(woord);
 	}
-	
+
 	public void prijsverhoging(BigDecimal percentage) {
 		BigDecimal factor = BigDecimal.ONE.add(percentage.divide(BigDecimal.valueOf(100)));
 		try {
@@ -54,4 +54,7 @@ public class ArtikelService extends AbstractService {
 		}
 	}
 
+	public List<Artikel> findAll() {
+		return artikelRepository.findAll();
+	}
 }

@@ -18,15 +18,17 @@ public class ArtikelRepository extends AbstractRepository {
 	public void delete(long id) {
 		read(id).ifPresent(artikel -> getEntityManager().remove(artikel));
 	}
-	
+
 	public List<Artikel> findByNaamContains(String woord) {
-		return getEntityManager()
-				.createNamedQuery("Artikel.findByNaamContains", Artikel.class)
+		return getEntityManager().createNamedQuery("Artikel.findByNaamContains", Artikel.class)
 				.setParameter("zoals", '%' + woord + '%').getResultList();
 	}
-	
+
 	public void prijsverhoging(BigDecimal factor) {
 		getEntityManager().createNamedQuery("Artikel.prijsverhoging").setParameter("factor", factor).executeUpdate();
 	}
 
+	public List<Artikel> findAll() {
+		return getEntityManager().createNamedQuery("Artikel.findAll", Artikel.class).getResultList();
+	}
 }
